@@ -1,0 +1,114 @@
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand img {
+      max-height: 40px; /* Ustaw maksymalną wysokość obrazu */
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .nav-link {
+      color: #d4a5e2 !important; /* Jasno fioletowy kolor */
+    }
+    .nav-link:hover {
+      color: #9b59b6 !important; /* Ciemno fioletowy kolor */
+    }
+    .container {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .btn-light {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .btn-light:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+    .rounded-image {
+      width: 50%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="<%= root_path %>"><%= image_tag "ikona.png", alt: "Ikona"%> Adoptuj Przyjaciela</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="<%= root_path %>">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Galeria
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Koty</a>
+          <a class="dropdown-item" href="#">Psy</a>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="contact.html">Kontakt <span class="sr-only">(aktualnie)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Logowanie</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h1>Kontakt</h1>
+  <p>Skontaktuj się z nami, aby uzyskać więcej informacji o naszych podopiecznych lub umówić się na spotkanie adopcyjne.</p>
+  
+  <div class="row">
+    <div class="col-md-5">
+      <h2>Dane kontaktowe</h2>
+      <p><strong>Adoptuj Przyjaciela</strong><br>
+      ul. Przyjacielska 123<br>
+      00-000 Miastowo<br>
+      Tel: 123-456-789<br>
+      Email: kontakt@adoptujprzyjaciela.pl</p>
+      <center><%= image_tag "contact.png", alt: "Kontakt", class: "rounded-image" %> </center>
+    </div>
+
+
+
+    <div class="col-md-5">
+      <h2>Formularz kontaktowy</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Imię i nazwisko</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adres email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Wiadomość</label>
+          <textarea class="form-control" id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">Wyślij</button>
+      </form>
+    </div>
+  </div>
+</div>
