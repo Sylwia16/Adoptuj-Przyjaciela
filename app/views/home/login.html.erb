@@ -1,5 +1,5 @@
 <style>
-    body {
+   body {
       font-family: 'Arial', sans-serif;
       background-color: #f8f9fa;
     }
@@ -36,15 +36,9 @@
       background-color: #0056b3;
       color: #fff;
     }
-    .rounded-image {
-      width: 50%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
+
   </style>
-</head>
-<body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="<%= root_path %>"><%= image_tag "ikona.png", alt: "Ikona"%> Adoptuj Przyjaciela</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +48,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="<%= root_path %>">Home</a>
+        <a class="nav-link" href="<%= root_path %>">Home </a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,50 +59,25 @@
           <a class="dropdown-item" href="#">Psy</a>
         </div>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="contact.html">Kontakt <span class="sr-only">(aktualnie)</span></a>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.html">Logowanie</a>
+        <a class="nav-link" href="contact.html">Kontakt</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="login.html">Logowanie <span class="sr-only">(aktualnie)</span></a>
       </li>
     </ul>
   </div>
 </nav>
 
-<div class="container mt-5">
-  <h1>Kontakt</h1>
-  <p>Skontaktuj się z nami, aby uzyskać więcej informacji o naszych podopiecznych lub umówić się na spotkanie adopcyjne.</p>
-  
+
+<div class="container">
   <div class="row">
-    <div class="col-md-5">
-      <h2>Dane kontaktowe</h2>
-      <p><strong>Adoptuj Przyjaciela</strong><br>
-      ul. Przyjacielska 123<br>
-      00-000 Miastowo<br>
-      Tel: 123-456-789<br>
-      Email: kontakt@adoptujprzyjaciela.pl</p>
-      <center><%= image_tag "contact.png", alt: "Kontakt", class: "rounded-image" %> </center>
-    </div>
 
+    <center><button type="button" class="btn btn-secondary btn-lg" style="margin-top: 50px; margin-bottom: 30px;"><%= link_to "Zaloguj się", new_user_session_path, style:"color:white; text-decoration: none;"%>
+    </button>
+    <h4>Jeśli nie masz jeszcze konta:</h4>
+    <p><button type="button" class="btn btn-secondary btn-lg" style="margin-top: 30px;"><%= link_to "Zarejestruj się", new_user_registration_path, style:"color:white; text-decoration: none;" %></button></p></center>
 
-
-    <div class="col-md-5">
-      <h2>Formularz kontaktowy</h2>
-      <form>
-        <div class="form-group">
-          <label for="name">Imię i nazwisko</label>
-          <input type="text" class="form-control" id="name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Adres email</label>
-          <input type="email" class="form-control" id="email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Wiadomość</label>
-          <textarea class="form-control" id="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-outline-secondary">Wyślij</button>
-      </form>
-    </div>
+   
   </div>
 </div>
