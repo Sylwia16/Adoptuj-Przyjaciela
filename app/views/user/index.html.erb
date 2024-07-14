@@ -1,0 +1,101 @@
+<style>
+   body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand img {
+      max-height: 40px; /* Ustaw maksymalną wysokość obrazu */
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .nav-link {
+      color: #d4a5e2 !important; /* Jasno fioletowy kolor */
+    }
+    .nav-link:hover {
+      color: #9b59b6 !important; /* Ciemno fioletowy kolor */
+    }
+    .container {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .btn-light {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .btn-light:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+
+  </style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index.html"><%= image_tag "ikona.png", alt: "Ikona"%> Adoptuj Przyjaciela</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(aktualnie)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Galeria
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Koty</a>
+          <a class="dropdown-item" href="#">Psy</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Kontakt</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <h1>Witaj Użytkowniku! &#129392; </h1>
+        <div class="card bg-light mb-3" style="max-width: 35rem;">
+        <div class="card-header">&#128049; Nasz cel: </div>
+        <div class="card-body">
+        <p class="card-text">Dołącz do społeczności Adoptuj Przyjaciela i daj bezdomnym zwierzakom drugą szansę na szczęśliwe życie. Twój nowy, wierny towarzysz czeka na Ciebie – adoptuj przyjaciela już dziś!</p>
+        </div>
+        </div>
+
+        <div class="card bg-light mb-3" style="max-width: 35rem;">
+        <div class="card-header">&#128054; Nasza misja: </div>
+        <div class="card-body">
+        <p class="card-text">W Adoptuj Przyjaciela pomagamy zwierzętom w potrzebie znaleźć kochające rodziny. Przeglądaj profile naszych podopiecznych i odkryj, jak możesz odmienić życie futrzanego przyjaciela!</p>
+        </div>
+        </div>
+
+        <%= form_tag(destroy_user_session_path, method: :delete) do %>
+        <center><%= submit_tag "Wyloguj", class: "btn btn-outline-danger", style: "font-size:30px" %></center>
+        <% end %>
+
+    </div>
+
+    <div class="col-md-5 text-right">
+      <%= image_tag("logo.png", alt: "Logo", class: "rounded-image") %>
+    </div>
+  </div>
+
+    
+</div>
