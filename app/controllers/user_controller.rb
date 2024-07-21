@@ -7,6 +7,7 @@ class UserController < ApplicationController
   end
 
   def gallery_cat_user
+    @cats = Cat.all
   
   end
 

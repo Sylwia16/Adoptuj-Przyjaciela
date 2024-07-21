@@ -47,8 +47,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="<%= admin_index_path %>">Home</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= admin_index_path %>">Home <span class="sr-only">(aktualnie)</span></a>
       </li>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-turbolinks="false">
@@ -65,47 +65,53 @@
 
 
 <div class="container">
-<center><h1>Poznaj nasze kotki do adopcji &#128049;&#128156;! </h1></center>
-<center><h3> Dodaj nowego kota <a href="<%= new_cat_path %>" class="btn btn-secondary">Dodaj</a></h2></center>
+<h1> Edytuj szczegóły tego kota</h1>
 
-
-
- 
-  <div class="row">
-    <% @cats.each do |cat| %>
-      <div class="col-sm-3 mb-3">
-        <div class="card" style="width: 18rem;">
-          <% if cat.image.attached? %>
-            <%= image_tag cat.image, class: 'card-img-top', alt: cat.name %>
-          <% else %>
-            <%= image_tag 'default_cat.png', class: 'card-img-top', alt: 'Default Cat' %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= cat.name %></h5>
-            <p class="card-text"><%= cat.description %></p>
-            <center>
-            <%= link_to 'Szczegóły', cat_path(cat), class: 'btn btn-secondary' %>
-
-            <%= form_with model: cat, url: cat_path(cat), method: :delete, local: true do |form| %>
-              <%= form.submit 'Usuń', class: 'btn btn-danger', data: { confirm: 'Czy na pewno chcesz usunąć tego kota?' } %>
+    <%= form_with model: @cat, local: true, html: { class: 'needs-validation', novalidate: true } do |form| %>
+        <% if @cat.errors.any? %>
+            <div class="alert alert-danger">
+            <h4 class="alert-heading"><%= pluralize(@cat.errors.count, "błąd") %> wystąpił(a) podczas próby zapisania kota:</h4>
+            <ul>
+            <% @cat.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
             <% end %>
-          </center>
+            </ul>
+            </div>
+        <% end %>
 
-          </div>
-        </div>
-      </div>
+    <div class="form-floating mb-3">
+        <%= form.text_field :name, class: 'form-control', id: 'name', placeholder: 'Imię' %>
+        <%= form.label :name, 'Imię', class: 'form-label' %>
+    </div>
+
+    <div class="form-floating mb-3">
+        <%= form.number_field :age, class: 'form-control', id: 'age', placeholder: 'Wiek' %>
+        <%= form.label :age, 'Wiek', class: 'form-label' %>
+    </div>
+
+    <div class="form-floating mb-3">
+        <%= form.text_area :description, class: 'form-control', id: 'description', placeholder: 'Opis', style: 'height: 100px;' %>
+        <%= form.label :description, 'Opis', class: 'form-label' %>
+    </div>
+
+    <div class="form-check mb-3">
+        <%= form.check_box :adopted, class: 'form-check-input', id: 'adopted' %>
+        <%= form.label :adopted, 'Adoptowany', class: 'form-check-label' %>
+    </div>
+
+    <div class="actions">
+        <center><%= form.submit "Zapisz", class: 'btn btn-success' %></center>
+    </div>
+
     <% end %>
-  </div>
 
-    
-
-
-
-
-    
-
-    
-
-
+<center> <%= link_to 'Powrót', admin_gallery_cat_admin_path, class: 'btn btn-secondary mt-3' %> </center>
     
 </div>
+
+
+
+
+
+
+

@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def gallery_cat
+    @cats = Cat.all
   
   end
 
