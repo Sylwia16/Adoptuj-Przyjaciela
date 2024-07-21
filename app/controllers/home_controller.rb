@@ -5,4 +5,12 @@ class HomeController < ApplicationController
   def contact
   
   end
+
+  def gallery_cat
+  
+  end
+
+  def gallery_dog
+  
+  end
 end
