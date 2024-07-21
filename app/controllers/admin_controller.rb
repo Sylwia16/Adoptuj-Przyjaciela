@@ -8,11 +8,17 @@ class AdminController < ApplicationController
   end
 
   def gallery_cat_admin
+    @cats = Cat.all
   
   end
 
   def gallery_dog_admin
     
+  end
+
+  def authenticate_admin!
+    # Metoda do weryfikacji, czy użytkownik jest administratorem
+    redirect_to root_path unless current_user&.admin?
   end
 
 end

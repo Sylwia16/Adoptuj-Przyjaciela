@@ -73,103 +73,27 @@
 <div class="container">
 <h1>Poznaj nasze kotki do adopcji &#128049;&#128156;! </h1>
 
+  <div class="container mt-5">
   <div class="row">
-
-    <div class="col-sm-3 mb-3 mb-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("cat1.png", alt: "Cat1") %>
-        <div class="card-body">
-        <h5 class="card-title">Łapka</h5>
-        <p class="card-text">Łapka to przyjanzna kotka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-secondary">Szczegóły</a></center>
+    <% @cats.each do |cat| %>
+      <div class="col-sm-3 mb-3">
+        <div class="card" style="width: 18rem;">
+          <% if cat.image.attached? %>
+            <%= image_tag cat.image, class: 'card-img-top', alt: cat.name %>
+          <% else %>
+            <%= image_tag 'default_cat.png', class: 'card-img-top', alt: 'Default Cat' %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= cat.name %></h5>
+            <p class="card-text"><%= cat.description %></p>
+            <center>
+              <%= link_to 'Szczegóły', cat_path(cat), class: 'btn btn-secondary' %>
+            </center>
+          </div>
         </div>
-    </div>
-    </div>
-
-    <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("cat1.png", alt: "Cat1") %>
-        <div class="card-body">
-        <h5 class="card-title">Łapka</h5>
-        <p class="card-text">Łapka to przyjanzna kotka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-secondary">Szczegóły</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("cat1.png", alt: "Cat1") %>
-        <div class="card-body">
-        <h5 class="card-title">Łapka</h5>
-        <p class="card-text">Łapka to przyjanzna kotka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-secondary">Szczegóły</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("cat1.png", alt: "Cat1") %>
-        <div class="card-body">
-        <h5 class="card-title">Łapka</h5>
-        <p class="card-text">Łapka to przyjanzna kotka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-secondary">Szczegóły</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("cat1.png", alt: "Cat1") %>
-        <div class="card-body">
-        <h5 class="card-title">Łapka</h5>
-        <p class="card-text">Łapka to przyjanzna kotka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-secondary">Szczegóły</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("cat1.png", alt: "Cat1") %>
-        <div class="card-body">
-        <h5 class="card-title">Łapka</h5>
-        <p class="card-text">Łapka to przyjanzna kotka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-secondary">Szczegóły</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("cat1.png", alt: "Cat1") %>
-        <div class="card-body">
-        <h5 class="card-title">Łapka</h5>
-        <p class="card-text">Łapka to przyjanzna kotka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-secondary">Szczegóły</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("cat1.png", alt: "Cat1") %>
-        <div class="card-body">
-        <h5 class="card-title">Łapka</h5>
-        <p class="card-text">Łapka to przyjanzna kotka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-secondary">Szczegóły</a></center>
-        </div>
-    </div>
-    </div>
-
-
-
-
-    
-
-    
+      </div>
+    <% end %>
   </div>
-
+</div>
     
 </div>

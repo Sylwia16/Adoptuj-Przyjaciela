@@ -1,0 +1,18 @@
+<h1>Lista Kotów</h1>
+
+<% @cats.each do |cat| %>
+  <p>
+    <strong>Imię:</strong>
+    <%= cat.name %><br>
+    <strong>Wiek:</strong>
+    <%= cat.age %><br>
+    <strong>Opis:</strong>
+    <%= cat.description %><br>
+    <strong>Adoptowany:</strong>
+    <%= cat.adopted ? "Tak" : "Nie" %>
+    <% if current_user && !cat.adopted %>
+      <%= link_to 'Adoptuj', adopt_cat_path(cat), method: :patch %>
+    <% end %>
+  </p>
+<% end %>
+<%= link_to 'Nowy Kot', new_cat_path %>

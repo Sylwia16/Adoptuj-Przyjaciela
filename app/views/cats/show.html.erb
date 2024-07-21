@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card">
+        <% if @cat.image.attached? %>
+          <%= image_tag @cat.image, class: 'card-img-top', alt: @cat.name %>
+        <% else %>
+          <%= image_tag 'default_cat.png', class: 'card-img-top', alt: 'Default Cat' %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @cat.name %></h5>
+          <p class="card-text"><strong>Wiek:</strong> <%= @cat.age %> lat</p>
+          <p class="card-text"><%= @cat.description %></p>
+          <p class="card-text"><strong>Adoptowany:</strong> <%= @cat.adopted ? "Tak" : "Nie" %></p>
+
+
+            <!-- Link do powrotu warunkowo na podstawie roli użytkownika -->
+            <center>
+            <% if user_signed_in? %>
+                <% if current_user.admin? %>
+                <%= link_to 'Powrót', admin_gallery_cat_admin_path, class: 'btn btn-secondary' %>
+                <% else %>
+                <%= link_to 'Powrót', user_gallery_cat_user_path, class: 'btn btn-secondary' %>
+                <% end %>
+            <% else %>
+                <%= link_to 'Powrót', gallery_cat_path, class: 'btn btn-secondary' %>
+            <% end %>
+
+            <% if user_signed_in? && current_user.admin? %>
+                <%= link_to 'Edytuj', edit_cat_path(@cat), class: 'btn btn-primary' %>
+                <%= link_to 'Usuń', cat_path(@cat), method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć tego kota?' }, class: 'btn btn-danger' %>
+            <% end %>
+             </center>
+
+            <center>
+            
+            </center>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
