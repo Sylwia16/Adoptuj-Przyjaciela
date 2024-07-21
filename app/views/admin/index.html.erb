@@ -40,7 +40,7 @@
   </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.html"><%= image_tag "ikona.png", alt: "Ikona"%> Adoptuj Przyjaciela</a>
+  <a class="navbar-brand" href="<%= admin_index_path %>"><%= image_tag "ikona.png", alt: "Ikona"%> Adoptuj Przyjaciela</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -48,17 +48,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home <span class="sr-only">(aktualnie)</span></a>
+        <a class="nav-link" href="<%= admin_index_path %>">Home <span class="sr-only">(aktualnie)</span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Galeria
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Koty</a>
-          <a class="dropdown-item" href="#">Psy</a>
-        </div>
-      </li>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-turbolinks="false">
+            Galeria zwierząt
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="<%= admin_gallery_cat_admin_path %>">Koty</a></li>
+            <li><a class="dropdown-item" href="<%= admin_gallery_dog_admin_path %>">Psy</a></li>
+          </ul>
+        </li>
     </ul>
   </div>
 </nav>
@@ -70,16 +70,16 @@
     <div class="col-md-6">
       <h1>Witaj Administratorze! &#129392; </h1>
         <div class="card bg-light mb-3" style="max-width: 35rem;">
-        <div class="card-header">&#128049; Nasz cel: </div>
+        <div class="card-header">&#128049; Twoje zadania: </div>
         <div class="card-body">
-        <p class="card-text">Dołącz do społeczności Adoptuj Przyjaciela i daj bezdomnym zwierzakom drugą szansę na szczęśliwe życie. Twój nowy, wierny towarzysz czeka na Ciebie – adoptuj przyjaciela już dziś!</p>
+        <p class="card-text">Możesz dodawać nowe zwierzaki do galerii oraz usuwać profile tych, które znalzły już nowy dom.</p>
         </div>
         </div>
 
         <div class="card bg-light mb-3" style="max-width: 35rem;">
         <div class="card-header">&#128054; Nasza misja: </div>
         <div class="card-body">
-        <p class="card-text">W Adoptuj Przyjaciela pomagamy zwierzętom w potrzebie znaleźć kochające rodziny. Przeglądaj profile naszych podopiecznych i odkryj, jak możesz odmienić życie futrzanego przyjaciela!</p>
+        <p class="card-text">Możesz edytować opisy zwierzaków, które czekają na nowy dom.</p>
         </div>
         </div>
 
@@ -90,7 +90,7 @@
     </div>
 
     <div class="col-md-5 text-right">
-      <%= image_tag("logo.png", alt: "Logo", class: "rounded-image") %>
+      <%= image_tag("admin.png", alt: "Logo", class: "rounded-image") %>
     </div>
   </div>
 

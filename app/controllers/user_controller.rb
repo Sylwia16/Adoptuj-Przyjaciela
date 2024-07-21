@@ -5,4 +5,12 @@ class UserController < ApplicationController
   def contact
   
   end
+
+  def gallery_cat_user
+  
+  end
+
+  def gallery_dog_user
+  
+  end
 end

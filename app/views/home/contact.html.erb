@@ -57,14 +57,14 @@
         <a class="nav-link" href="<%= root_path %>">Home</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Galeria
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Koty</a>
-          <a class="dropdown-item" href="#">Psy</a>
-        </div>
-      </li>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-turbolinks="false">
+            Galeria zwierząt
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="<%= gallery_cat_path %>">Koty</a></li>
+            <li><a class="dropdown-item" href="<%= gallery_dog_path %>">Psy</a></li>
+          </ul>
+        </li>
       <li class="nav-item active">
         <a class="nav-link" href="contact.html">Kontakt <span class="sr-only">(aktualnie)</span></a>
       </li>

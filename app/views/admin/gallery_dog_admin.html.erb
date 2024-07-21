@@ -1,0 +1,169 @@
+<style>
+   body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand img {
+      max-height: 40px; /* Ustaw maksymalną wysokość obrazu */
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .nav-link {
+      color: #d4a5e2 !important; /* Jasno fioletowy kolor */
+    }
+    .nav-link:hover {
+      color: #9b59b6 !important; /* Ciemno fioletowy kolor */
+    }
+    .container {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .btn-light {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .btn-light:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+
+  </style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="<%= admin_index_path %>"><%= image_tag "ikona.png", alt: "Ikona"%> Adoptuj Przyjaciela</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="<%= admin_index_path %>">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-turbolinks="false">
+            Galeria zwierząt
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="<%= admin_gallery_cat_admin_path %>">Koty</a></li>
+            <li><a class="dropdown-item" href="<%= admin_gallery_dog_admin_path %>">Psy</a></li>
+          </ul>
+        </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
+<h1>Poznaj nasze pieski do adopcji &#128054;&#128156;! </h1>
+
+  <div class="row">
+
+    <div class="col-sm-3 mb-3 mb-sm-3">
+    <div class="card" style="width: 18rem;">
+        <%= image_tag("dog1.jpg", alt: "Dog1") %>
+        <div class="card-body">
+        <h5 class="card-title">Daisy</h5>
+        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
+        <center><a href="#" class="btn btn-secondary">Szczegóły</a> <a href="#" class="btn btn-danger">Usuń</a></center>
+        </div>
+    </div>
+    </div>
+
+    <div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <%= image_tag("dog1.jpg", alt: "Dog1") %>
+        <div class="card-body">
+        <h5 class="card-title">Daisy</h5>
+        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
+        <center><a href="#" class="btn btn-secondary">Szczegóły</a> <a href="#" class="btn btn-danger">Usuń</a></center>
+        </div>
+    </div>
+    </div>
+
+     <div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <%= image_tag("dog1.jpg", alt: "Dog1") %>
+        <div class="card-body">
+        <h5 class="card-title">Daisy</h5>
+        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
+        <center><a href="#" class="btn btn-secondary">Szczegóły</a> <a href="#" class="btn btn-danger">Usuń</a></center>
+        </div>
+    </div>
+    </div>
+
+     <div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <%= image_tag("dog1.jpg", alt: "Dog1") %>
+        <div class="card-body">
+        <h5 class="card-title">Daisy</h5>
+        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
+        <center><a href="#" class="btn btn-secondary">Szczegóły</a> <a href="#" class="btn btn-danger">Usuń</a></center>
+        </div>
+    </div>
+    </div>
+
+     <div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <%= image_tag("dog1.jpg", alt: "Dog1") %>
+        <div class="card-body">
+        <h5 class="card-title">Daisy</h5>
+        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
+        <center><a href="#" class="btn btn-secondary">Szczegóły</a> <a href="#" class="btn btn-danger">Usuń</a></center>
+        </div>
+    </div>
+    </div>
+
+     <div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <%= image_tag("dog1.jpg", alt: "Dog1") %>
+        <div class="card-body">
+        <h5 class="card-title">Daisy</h5>
+        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
+        <center><a href="#" class="btn btn-secondary">Szczegóły</a> <a href="#" class="btn btn-danger">Usuń</a></center>
+        </div>
+    </div>
+    </div>
+
+     <div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <%= image_tag("dog1.jpg", alt: "Dog1") %>
+        <div class="card-body">
+        <h5 class="card-title">Daisy</h5>
+        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
+        <center><a href="#" class="btn btn-secondary">Szczegóły</a> <a href="#" class="btn btn-danger">Usuń</a></center>
+        </div>
+    </div>
+    </div>
+
+     <div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <%= image_tag("dog1.jpg", alt: "Dog1") %>
+        <div class="card-body">
+        <h5 class="card-title">Daisy</h5>
+        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
+        <center><a href="#" class="btn btn-secondary">Szczegóły</a> <a href="#" class="btn btn-danger">Usuń</a></center>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    
+
+    
+  </div>
+
+    
+</div>
