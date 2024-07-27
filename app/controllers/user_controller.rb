@@ -12,6 +12,6 @@ class UserController < ApplicationController
   end
 
   def gallery_dog_user
-  
+    @dogs = Dog.all
   end
 end

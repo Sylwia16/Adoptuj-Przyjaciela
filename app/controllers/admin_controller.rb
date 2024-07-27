@@ -13,7 +13,7 @@ class AdminController < ApplicationController
   end
 
   def gallery_dog_admin
-    
+    @dogs = Dog.all
   end
 
   def authenticate_admin!

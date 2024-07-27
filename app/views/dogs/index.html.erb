@@ -1,0 +1,18 @@
+<h1>Lista Psów</h1>
+
+<% @dogs.each do |dog| %>
+  <p>
+    <strong>Imię:</strong>
+    <%= dog.name %><br>
+    <strong>Wiek:</strong>
+    <%= dog.age %><br>
+    <strong>Opis:</strong>
+    <%= dog.description %><br>
+    <strong>Adoptowany:</strong>
+    <%= dog.adopted ? "Tak" : "Nie" %>
+    <% if current_user && !dog.adopted %>
+      <%= link_to 'Adoptuj', adopt_dog_path(dog), method: :patch %>
+    <% end %>
+  </p>
+<% end %>
+<%= link_to 'Nowy Pies', new_dog_path %>

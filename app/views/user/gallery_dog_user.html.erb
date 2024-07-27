@@ -70,103 +70,26 @@
 <div class="container">
 <h1>Poznaj nasze pieski do adopcji &#128054;&#128156;! </h1>
 
+<div class="container mt-5">
   <div class="row">
-
-    <div class="col-sm-3 mb-3 mb-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("dog1.jpg", alt: "Dog1") %>
-        <div class="card-body">
-        <h5 class="card-title">Daisy</h5>
-        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-success">Zaadoptuj</a></center>
+    <% @dogs.each do |dog| %>
+      <div class="col-sm-3 mb-3">
+        <div class="card" style="width: 18rem;">
+          <% if dog.image.attached? %>
+            <%= image_tag dog.image, class: 'card-img-top', alt: dog.name %>
+          <% else %>
+            <%= image_tag 'default_dog.png', class: 'card-img-top', alt: 'Default Dog' %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= dog.name %></h5>
+            <p class="card-text"><%= dog.description %></p>
+            <center>
+              <%= link_to 'Szczegóły', dog_path(dog), class: 'btn btn-secondary' %>
+              <%= link_to 'Zaadoptuj', dog_path(dog), class: 'btn btn-success' %>
+            </center>
+          </div>
         </div>
-    </div>
-    </div>
-
-    <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("dog1.jpg", alt: "Dog1") %>
-        <div class="card-body">
-        <h5 class="card-title">Daisy</h5>
-        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-success">Zaadoptuj</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("dog1.jpg", alt: "Dog1") %>
-        <div class="card-body">
-        <h5 class="card-title">Daisy</h5>
-        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-success">Zaadoptuj</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("dog1.jpg", alt: "Dog1") %>
-        <div class="card-body">
-        <h5 class="card-title">Daisy</h5>
-        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-success">Zaadoptuj</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("dog1.jpg", alt: "Dog1") %>
-        <div class="card-body">
-        <h5 class="card-title">Daisy</h5>
-        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-success">Zaadoptuj</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("dog1.jpg", alt: "Dog1") %>
-        <div class="card-body">
-        <h5 class="card-title">Daisy</h5>
-        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-success">Zaadoptuj</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("dog1.jpg", alt: "Dog1") %>
-        <div class="card-body">
-        <h5 class="card-title">Daisy</h5>
-        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-success">Zaadoptuj</a></center>
-        </div>
-    </div>
-    </div>
-
-     <div class="col-sm-3">
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("dog1.jpg", alt: "Dog1") %>
-        <div class="card-body">
-        <h5 class="card-title">Daisy</h5>
-        <p class="card-text">Daisy to przyjanzna suczka, która szuka nowego domu.</p>
-        <center><a href="#" class="btn btn-success">Zaadoptuj</a></center>
-        </div>
-    </div>
-    </div>
-
-
-
-
-    
-
-    
+      </div>
+    <% end %>
   </div>
-
-    
 </div>
