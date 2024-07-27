@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
-  before_action :set_cat, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_cat, only: [:show, :edit, :update, :destroy, :adopt]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :adopt]
   before_action :check_admin, only: [:destroy] # Sprawdzenie, czy użytkownik jest adminem
 
   def index
@@ -36,9 +36,27 @@ class CatsController < ApplicationController
   end
 
   def destroy
+    @cat = Cat.find(params[:id])
+    
+    # Usuń powiązane adopcje
+    @cat.adoptions.destroy_all
+    
+    # Następnie usuń psa
     @cat.destroy
-    redirect_to admin_gallery_cat_admin_path, notice: 'Kot został pomyślnie usunięty.'
+    
+    redirect_to admin_gallery_cat_admin_path, notice: 'Kot został usunięty.'
   end
+
+  def adopt
+    @adoption = Adoption.new(cat: @cat, user: current_user)
+  
+    if @adoption.save
+      redirect_to user_gallery_cat_user_path, notice: 'Zaadoptowałeś wirtualnie tego kota.'
+    else
+      redirect_to user_gallery_cat_user_path, alert: 'Zaadoptowłeś już tego kota'
+    end
+  end
+  
 
   private
 

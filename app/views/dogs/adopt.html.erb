@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <% if @dog.image.attached? %>
+          <%= image_tag @dog.image, class: 'card-img-top', alt: @dog.name %>
+        <% else %>
+          <%= image_tag 'default_dog.png', class: 'card-img-top', alt: 'Default Dog' %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title">Gratulacje!</h5>
+          <p class="card-text">Właśnie zaadoptowałeś <%= @dog.name %>!</p>
+          <%= link_to 'Powrót do galerii', user_gallery_dog_user_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

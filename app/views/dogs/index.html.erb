@@ -9,10 +9,10 @@
     <strong>Opis:</strong>
     <%= dog.description %><br>
     <strong>Adoptowany:</strong>
-    <%= dog.adopted ? "Tak" : "Nie" %>
-    <% if current_user && !dog.adopted %>
-      <%= link_to 'Adoptuj', adopt_dog_path(dog), method: :patch %>
+    <%= dog.adopted ? "Tak" : "Nie" %><br>
+    <strong>Wirtualnie zaadoptowany przez:</strong> <%= dog.adopters.count %> użytkowników<br>
+    <% if user_signed_in? && !current_user.adopted_dogs.include?(dog) %>
+      <%= link_to 'Zaadoptuj', adopt_dog_path(@dog), method: :post, class: 'btn btn-success' %>
     <% end %>
   </p>
 <% end %>
-<%= link_to 'Nowy Pies', new_dog_path %>

@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
-  before_action :set_dog, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_dog, only: [:show, :edit, :update, :destroy, :adopt]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :adopt]
   before_action :check_admin, only: [:destroy] # Sprawdzenie, czy użytkownik jest adminem
 
   def index
@@ -36,9 +36,29 @@ class DogsController < ApplicationController
   end
 
   def destroy
+    @dog = Dog.find(params[:id])
+    
+    # Usuń powiązane adopcje
+    @dog.adoptions.destroy_all
+    
+    # Następnie usuń psa
     @dog.destroy
-    redirect_to admin_gallery_dog_admin_path, notice: 'Pies został pomyślnie usunięty.'
+    
+    redirect_to admin_gallery_dog_admin_path, notice: 'Pies został usunięty.'
   end
+
+  def adopt
+    @adoption = Adoption.new(dog: @dog, user: current_user)
+  
+    if @adoption.save
+      redirect_to user_gallery_dog_user_path, notice: 'Zaadoptowałeś wirtualnie tego psa.'
+    else
+      redirect_to user_gallery_dog_user_path, alert: 'Zaadoptowłeś już tego psa'
+    end
+  end
+  
+
+
 
   private
 

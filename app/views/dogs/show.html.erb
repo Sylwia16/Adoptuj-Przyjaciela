@@ -11,7 +11,10 @@
           <h5 class="card-title"><%= @dog.name %></h5>
           <p class="card-text"><strong>Wiek:</strong> <%= @dog.age %> lat</p>
           <p class="card-text"><%= @dog.description %></p>
-          <p class="card-text"><strong>Adoptowany:</strong> <%= @dog.adopted ? "Tak" : "Nie" %></p>
+          <p class="card-text"><strong>Adoptowany przez:</strong> <%= @dog.adopters.count %> użytkowników</p>
+
+            
+
 
 
             <!-- Link do powrotu warunkowo na podstawie roli użytkownika -->
@@ -28,7 +31,6 @@
 
             <% if user_signed_in? && current_user.admin? %>
                 <%= link_to 'Edytuj', edit_dog_path(@dog), class: 'btn btn-primary' %>
-                <%= link_to 'Usuń', dog_path(@dog), method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć tego psa?' }, class: 'btn btn-danger' %>
             <% end %>
              </center>
 

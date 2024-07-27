@@ -36,7 +36,21 @@
       background-color: #0056b3;
       color: #fff;
     }
-
+    .flash {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    .flash.notice {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .flash.alert {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
   </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -66,30 +80,39 @@
   </div>
 </nav>
 
-
 <div class="container">
-<h1>Poznaj nasze pieski do adopcji &#128054;&#128156;! </h1>
+  <% if flash[:notice] %>
+    <div class="flash notice"><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="flash alert"><%= flash[:alert] %></div>
+  <% end %>
 
-<div class="container mt-5">
-  <div class="row">
-    <% @dogs.each do |dog| %>
-      <div class="col-sm-3 mb-3">
-        <div class="card" style="width: 18rem;">
-          <% if dog.image.attached? %>
-            <%= image_tag dog.image, class: 'card-img-top', alt: dog.name %>
-          <% else %>
-            <%= image_tag 'default_dog.png', class: 'card-img-top', alt: 'Default Dog' %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= dog.name %></h5>
-            <p class="card-text"><%= dog.description %></p>
-            <center>
-              <%= link_to 'Szczegóły', dog_path(dog), class: 'btn btn-secondary' %>
-              <%= link_to 'Zaadoptuj', dog_path(dog), class: 'btn btn-success' %>
-            </center>
+  <h1>Poznaj nasze pieski do adopcji &#128054;&#128156;! </h1>
+
+  <div class="container mt-5">
+    <div class="row">
+      <% @dogs.each do |dog| %>
+        <div class="col-sm-3 mb-3">
+          <div class="card" style="width: 18rem;">
+            <% if dog.image.attached? %>
+              <%= image_tag dog.image, class: 'card-img-top', alt: dog.name %>
+            <% else %>
+              <%= image_tag 'default_dog.png', class: 'card-img-top', alt: 'Default Dog' %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= dog.name %></h5>
+              <p class="card-text"><%= dog.description %></p>
+              <p class="card-text">Wirtualnie zaadoptowany przez <%= dog.adopters.count %> użytkowników</p>
+              <center>
+                <%= link_to 'Szczegóły', dog_path(dog), class: 'btn btn-secondary' %>
+                <%= link_to 'Zaadoptuj', adopt_dog_path(dog), method: :post, class: 'btn btn-success' %>
+              </center>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
+
