@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   validates :role, presence: true, inclusion: { in: %w[user admin] }
 
+  has_many :adoptions
+  has_many :adopted_dogs, through: :adoptions, source: :dog
+  has_many :adopted_cats, through: :adoptions, source: :cat
+
   def admin?
     role == 'admin'
     

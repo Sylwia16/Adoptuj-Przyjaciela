@@ -12,6 +12,7 @@ class HomeController < ApplicationController
   end
 
   def gallery_dog
+    @dogs = Dog.all
   
   end
 end

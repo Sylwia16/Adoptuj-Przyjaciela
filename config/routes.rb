@@ -24,13 +24,32 @@ Rails.application.routes.draw do
     resources :cats, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
+  namespace :admin do
+    resources :dogs, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
+
   #user
   get '/user/index', to: 'user#index'
   get '/user/contact', to: 'user#contact'
   get '/user/gallery_cat_user', to: 'user#gallery_cat_user'
   get '/user/gallery_dog_user', to: 'user#gallery_dog_user'
+  get '/dogs/:id/adopt', to: 'dogs#adopt', as: 'adopt_dog'
+  get '/cats/:id/adopt', to: 'cats#adopt', as: 'adopt_cat'
 
-  resources :cats
+
+
+  resources :cats do
+    member do
+      post 'adopt'
+    end
+  end
+
+  resources :dogs do
+    member do
+      post 'adopt'
+    end
+  end
+
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

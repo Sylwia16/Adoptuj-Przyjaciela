@@ -10,9 +10,9 @@
     <%= cat.description %><br>
     <strong>Adoptowany:</strong>
     <%= cat.adopted ? "Tak" : "Nie" %>
-    <% if current_user && !cat.adopted %>
-      <%= link_to 'Adoptuj', adopt_cat_path(cat), method: :patch %>
+    <strong>Wirtualnie zaadoptowany przez:</strong> <%= cat.adopters.count %> użytkowników<br>
+    <% if user_signed_in? && !current_user.adopted_cats.include?(cat) %>
+      <%= link_to 'Zaadoptuj', adopt_cat_path(@cat), method: :post, class: 'btn btn-success' %>
     <% end %>
   </p>
 <% end %>
-<%= link_to 'Nowy Kot', new_cat_path %>

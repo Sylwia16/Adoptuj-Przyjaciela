@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card">
+        <% if @dog.image.attached? %>
+          <%= image_tag @dog.image, class: 'card-img-top', alt: @dog.name %>
+        <% else %>
+          <%= image_tag 'default_dog.png', class: 'card-img-top', alt: 'Default Dog' %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @dog.name %></h5>
+          <p class="card-text"><strong>Wiek:</strong> <%= @dog.age %> lat</p>
+          <p class="card-text"><%= @dog.description %></p>
+          <p class="card-text"><strong>Adoptowany przez:</strong> <%= @dog.adopters.count %> użytkowników</p>
+
+            
+
+
+
+            <!-- Link do powrotu warunkowo na podstawie roli użytkownika -->
+            <center>
+            <% if user_signed_in? %>
+                <% if current_user.admin? %>
+                <%= link_to 'Powrót', admin_gallery_dog_admin_path, class: 'btn btn-secondary' %>
+                <% else %>
+                <%= link_to 'Powrót', user_gallery_dog_user_path, class: 'btn btn-secondary' %>
+                <% end %>
+            <% else %>
+                <%= link_to 'Powrót', gallery_dog_path, class: 'btn btn-secondary' %>
+            <% end %>
+
+            <% if user_signed_in? && current_user.admin? %>
+                <%= link_to 'Edytuj', edit_dog_path(@dog), class: 'btn btn-primary' %>
+            <% end %>
+             </center>
+
+            <center>
+            
+            </center>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

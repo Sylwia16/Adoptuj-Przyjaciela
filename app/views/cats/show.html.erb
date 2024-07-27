@@ -11,7 +11,7 @@
           <h5 class="card-title"><%= @cat.name %></h5>
           <p class="card-text"><strong>Wiek:</strong> <%= @cat.age %> lat</p>
           <p class="card-text"><%= @cat.description %></p>
-          <p class="card-text"><strong>Adoptowany:</strong> <%= @cat.adopted ? "Tak" : "Nie" %></p>
+          <p class="card-text"><strong>Adoptowany przez:</strong> <%= @cat.adopters.count %> użytkowników</p>
 
 
             <!-- Link do powrotu warunkowo na podstawie roli użytkownika -->
@@ -28,7 +28,6 @@
 
             <% if user_signed_in? && current_user.admin? %>
                 <%= link_to 'Edytuj', edit_cat_path(@cat), class: 'btn btn-primary' %>
-                <%= link_to 'Usuń', cat_path(@cat), method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć tego kota?' }, class: 'btn btn-danger' %>
             <% end %>
              </center>
 
